@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      La meva primera App
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+      <h1>Formulari</h1>
+
+      <form>
+        <ion-item>
+          <label for="nom">El meu nom</label>
+          <input name="nom" type="text" style="margin-left: 5px;" [(ngModel)]="meuNom">
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" for="edad">La meva edad</ion-label>
+          <ion-input name="edad" type="number" [(ngModel)]="mevaEdad"></ion-input>
+        </ion-item>
+
+        <ion-item>
+         <button (click)="introduirDades()">Introduir les dades</button>
+        </ion-item>
+
+        <ion-item>
+         <ion-button (click)="mostrarDades()" *ngIf="!mostra">Mostar les dades</ion-button>
+         <ion-button (click)="mostrarDades()" *ngIf="mostra">Amagar les dades</ion-button>
+        </ion-item>
+      </form>
+  </ion-card>
+
+  <ion-card *ngIf="mostra">
+    <p>Em dic {{ meuNom }} i tinc {{mevaEdad }}</p>
+  </ion-card>
+</ion-content>
