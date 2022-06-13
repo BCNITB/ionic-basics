@@ -4,27 +4,90 @@
         <meta charset="utf-8">
         <title>Conceptes d'Ionic</title>
 
+        <style>
+            main{
+                background-color: black;
+                display: flex;
+            }
+
+            article{
+                background-color: red;
+            }
+
+            aside{
+                background-color: yellow;
+            }
+
+            nav ul li a{
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 1.2em;
+            }
+
+            body{
+                font-size: 1.2em;
+            }
+            
+            a{
+                text-decoration: none;
+            }
+
+            .btn{
+                margin: 0vh 35vw;
+                color: white;
+                background-color: blue;
+                padding: 2vh 2vw;
+
+                border: 0.25em solid navy;
+                border-radius: 1em;
+            }
+        </style>
     </head>
 
-    <body>
-        <nav>
+    <body style="background-color: ;">
+        <nav style="text-align: center; ">
             <ul style="list-style: none;">
-                <li>Català</li>
-                <li><a href="es/index.html" title="Ver la versión en castellano">Castellanos</a></li>
-                <li><a href="en/index.html" title="Go to English version">English</a></li>
+                <li style="display: inline; padding: 2vh 1vw; background-color: yellow; color: red; font-weight: 900;">Català</li>
+                <li style="display: inline; padding: 2vh 1vw;"><a href="es/index.html" title="Ver la versión en castellano" style="text-decoration: none;">Castellano</a></li>
+                <li style="display: inline; padding: 2vh 1vw;"><a href="en/index.html" title="Go to English version" style="text-decoration: none;">English</a></li>
             </ul>
         </nav>
 
-        <main>
-            <article>
+        <header style="margin: 1vh 15vw;">
+            <h1>Conceptes bàsics d'Ionic</h1>
+        </header>
 
+        <main style="margin: 1vh 15vw;">
+            <article>
+                <h2>Introducció</h2>
+                <p>
+                    Aquest és un petit recull dels conceptes de programació bàsics per a utilitzar Ionic. El recull està dividit en quatre grans blocs:
+                </p>
+                
+                <ol>
+                    <li><a href="ca/01.html" title="Bloc I: Etiquetes HTML">Etiquetes <abbr title="">HTML</abbr>.</a></li>
+                    <li><a href="ca/02.html" title="Bloc II: Fulla d'estils">Estils de <abbr title="">CSS</abbr>.</a></li>
+                    <li><a>Programació amb <span lang="en">TypeScript</span>.</a></li>
+                    <li><a><abbr lang="en">Ionic/CLI</abbr> i el seu entorn.</a></li>
+                </ol>
+
+                <p>
+                    Als blocs es veuran els conceptes bàsics i mínims per a començar a programar una aplicació utilitzant Ionic i al final del mateix es realitzarà una petita aplicació 
+                    utilitzant el que s’ha vist.
+                </p> 
+
+                <div style="margin-top: 5vh;">
+                    <a class="btn" href="ca/01.html" title="Bloc I: Etiquetes HTML" role="button">Començar</a>
+                </div
             </article>
 
-            <aside></aside>
+            >
+            <aside>
+
+            </aside>
         </main>
     </body>
 
     <footer>
-        <p></p>
+        
     </footer>
 </html>

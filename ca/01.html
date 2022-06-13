@@ -1,0 +1,324 @@
+<!DOCTYPE html lang="ca">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Conceptes d'Ionic</title>
+
+        <style>
+            main{
+                background-color: black;
+                display: flex;
+            }
+
+            article{
+                background-color: red;
+            }
+
+            aside{
+                background-color: yellow;
+            }
+
+            nav ul li a{
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 1.2em;
+            }
+
+            body{
+                font-size: 1.2em;
+            }
+
+            a{
+                text-decoration: none;
+                color: black;
+            }
+
+            .btn{
+                color: white;
+                background-color: blue;
+                padding: 2vh 2vw;
+
+                border: 0.25em solid navy;
+                border-radius: 1em;
+            }
+
+            #left{
+                float: left;
+                margin-left: 5vw;
+            }
+
+            #right{
+                float: right;
+                margin-right: 5vw;
+            }
+        </style>
+    </head>
+
+    <body style="background-color: ;">
+        <nav style="text-align: center; ">
+            <ul style="list-style: none;">
+                <li style="display: inline; padding: 2vh 1vw; background-color: yellow; color: red; font-weight: 900;">Català</li>
+                <li style="display: inline; padding: 2vh 1vw;"><a href="es/01.html" title="Ver la versión en castellano" style="text-decoration: none;">Castellano</a></li>
+                <li style="display: inline; padding: 2vh 1vw;"><a href="en/01.html" title="Go to English version" style="text-decoration: none;">English</a></li>
+            </ul>
+        </nav>
+
+        <header style="margin: 1vh 15vw;">
+            <h1>Bloc I: Etiqeutes <abbr title="HyperText Markup Language">HTML</abbr></h1>
+        </header>
+
+        <main style="margin: 1vh 15vw;">
+            <article>
+                <h2>Introducció</h2>
+                <p>
+                    En aquest bloc es veuran les etiquetes bàsiques d’HTML/Ionic per a crear la part visual (User Interface) de 
+                    l’aplicació. Durant els apunts es veuran tant les etiquetes d’Ionic, que tenen un estil definit pel <span lang="en">framework</span>, i les etiquetes 
+                    HTML que no tenen un estil definit.
+                </p>
+                
+                <p>
+                    Com veurem, hi ha atributs que funcionen a les etiquetes d’Ionic i no a les d’HTML i a l’inrevés.
+                </p> 
+                <p>
+                    El contingut d'aquest primer bloc es el següent:
+                </p>
+                <ol>
+                    <li><a href="#conceptes" title="Anar a conceptes d'etiqueta">Conceptes d'etiqueta</a></li>
+                    <li><a href="#arxius" title="Anar a arxius xx.page.html">Arxius xx.page.html</a></li>
+                    <li><a href="#content" title="Anar a etiqueta ion-content">Etiqueta &lt;ion-content&gt;</a></li>
+                    <li><a href="txt" title="Anar a Etiquetes de Text">Anar a Etiquetes de Text</a></li>
+                        <ol>
+                            <li><a href="paragrafs" title="Anar a Paràgrafs">Paràgrafs</a></li>
+                            <li><a href="llistes" title="Anar a Llistes">Llistes</a></li>
+                                <ol>
+                                    <li><a href="ul" title="Anar a <ul>">&lt;ul&gt;</a></li>
+                                    <li><a href="ol" title="Anar a <ol>">&lt;ol&gt;</a></li>
+                                    <li><a href="list" title="Anar a <ion-list>">&lt;ion-list&gt;</a></li>
+                                </ol>
+                            <li><a href="span">&lt;span&gt;</a></li>
+                            <li><a href="negreta" title="Anar a Negreta i cursiva">Negreta i cursiva</a></li>
+                            <li><a href="item" title="Anar a <ion-item>">&lt;ion-item&gt;</a></li>
+                        </ol>
+                    <li><a href="formularis" title="Anar a Formularis">Formularis</a></li>
+                    <ol>
+                        <li><a href="entrades-txt" title="Anar a entrades de text">Entrades de text</a></li>
+                    </ol>
+                    <li><a href="btn" title="Anar a Botons">Botons</a></li>
+                    <li><a href="img" titles="Anar a Imatges">Imatges</a></li>
+                </ol>
+
+                <h2 id="conceptes">Conceptes d’etiqueta</h2>
+                <p>
+                    El llenguatge HTML és un llenguatge d’etiquetes d’hipertext i bàsicament s’utilitzen etiquetes i no cal programació de 
+                    codi. La gran majoria de les etiquetes d’HTML tenen una etiqueta d’obertura que marca l’inici i una etiqueta de tancament,
+                     que marca la finalització de la mateixa tal i com es mostra a continuació.
+                </p>
+                <ul>
+                    <li>Etiqueta d’obertura: <b>&lt;body&gt;</b></li>
+                    <li>Etiqueta de tancament: <b>&lt;/body&gt;</b></li>
+                </ul>
+                <p>
+                    En cas de que no es tanqui una etiqueta o no s’obri se’ns mostrarà la pantalla en blanc ja que l’aplicació no es mostrarà però no se’ns marcarà cap error 
+                    durant la compilació de l’aplicació. Per aquest motiu aquest és un error d’execució.
+                </p>
+                <p>
+                    Per evitar aquest tipus d’error s’aconsella que quan s’obri una etiqueta també es tanqui per tenir un mínim control de l’estructura de la part visual.
+                </p>
+
+                <h2 id="arxius">Arxius xx.page.html</h2>
+                <p>
+                    Les etiquetes HTML estan als fitxers amb finalització page.html. cadascuna d’aquest fitxers serà una 
+                    visualització (pantalla) diferent a la nostra aplicació.
+                </p>
+
+                <h2 id="content">Etiqueta &lt;ion-content&gt;</h2>
+                <p>
+                    Aquesta etiqueta serà la que contendrà la part principal de les etiquetes que utilitzarem per a crear la interfase d’usuari.
+                </p>
+
+                <h2 id="txt">Etiquetes de Text</h2>
+                <p>
+                    Hi ha diferents etiquetes per mostrar el text a l’aplicació, des de etiquetes de paràgraf fins a notes o cites.
+                </p>
+                <h3 id="paragrafs">Paràgrrafs</h3>
+                <p>
+                    La etiqueta que utilitzarem per a marcar el diferents paràgrafs serà la etiqueta <p>. Amb aquesta etiqueta marcarem l’inici i el final dels paràgrafs, tal i
+                         com es mostra a l’exemple.
+                </p>
+                <p>
+                    &lt;p&gt;
+                        Això és un paràgraf
+                    &lt;/p&gt;
+                </p>
+                <h3 id="llistes">Llistes</h3>
+                <p>
+                    Per a crear llistes a la nostra aplicació es pot utilitzar les etiquetes <ul>, <ol> i <ion-list>. Les dos primeres pertanyen a HTML i la darrera a Ionic.
+                </p>
+                <h4 id="ul">&lt;uk&gt;</h4>
+                <p>
+                    L’etiqueta <b>&lt;ul&gt;</b> crearà un llistat no numerat i al seu interior contindrà l’etiqueta <b>&lt;li&gt;</b> que marcarà cadascuna dels components del 
+                    llistat tal i com es mostra a l’exemple.
+                </p>
+                <ol style="list-style: none;">
+                    &lt;ul&gt;
+                        <li style="padding-left: 2vw;">&lt;li&gt;Primer element de la llista.&lt;/li&gt;</li>
+                        <li style="padding-left: 2vw;">&lt;li&gt;Segon element de la llista.&lt;/li&gt;</li>
+                    &lt;/ul&gt;
+                </ol>
+                <h4 id="ol">&lt;ol&gt;</h4>
+                <p>
+                    L’etiqueta <b>&lt;ol&gt;</b> crearà un llistat amb els seus elements numerats. Aquesta etiqueta també contendrà la seu interior elements <b>&lt;li&gt;</b>. 
+                    A continuació es mostra un exemple.
+                </p>
+                <ol style="list-style: none;">
+                    &lt;ol&gt;
+                    <li style="padding-left: 2vw;">&lt;li&gt;Primer element de la llista.&lt;/li&gt;</li>
+                    <li style="padding-left: 2vw;">&lt;li&gt;Segon element de la llista.&lt;/li&gt;</li>
+                    &lt;/ol&gt;
+                </ol>
+                <h4 id="list">&lt;ion-list&gt;</h4>
+                <p>
+                    Aquesta etiqueta és d’Ionic i el seu comportament serà similar a les altres dues etiquetes. Aquesta etiqueta al seu interior contendrà l’etiqueta 
+                    <b>&lt;ion-item&gt; per cada element del llistat tal i com es mostra a l’exemple.
+                </p>
+                <ol style="list-style: none;">
+                &lt;ion-list&gt;
+                    <li style="padding-left: 2vw;">&lt;ion-item&gt;Primer element de la llista.&lt;/ion-item&gt;</li>
+                    <li style="padding-left: 2vw;"></li>&lt;ion-item&gt;Segon element de la llista.&lt;/ion-item&gt;
+                &lt;ion-list&gt;
+                </ol>
+                
+                <div>
+                    <h3 id="span">&lt;span&gt;</h3>
+
+                    <p>
+                        L’etiqueta <b>&lt;span&gt;</b> no és pròpiament una etiqueta de text, però ens permet destacar un text amb atributs diferents, com seria un idioma 
+                        diferent, o fer que aparegui d’un color diferent per destacar sobre la resta.
+                    </p>
+
+                    <p>
+                        A continuació es mostra un exemple de l’etiqueta.
+                    </p>
+
+                    <p>
+                        &lt;p&gt;
+                            Això es una paràgraf amb una &lt;span&gt;paraula&lt;/span&gt; destacada
+                        &lt;/p&gt;
+                    </p>
+                </div>
+
+                <div>
+                    <h3 id="negreta">Negreta i cursiva</h3>
+
+                    <p>
+                        El format de negreta i cursiva es por imposar mitjançant etiquetes o estils. Per fer-ho amb etiquetes s’utilitzarà &lt;b&gt; per negreta i &lt;i&gt; 
+                        per cursiva.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 id="item">&lt;ion-item&gr;</h3>
+
+                    <p>
+                        Per a que el text es distribueixi un sota l’altre a Ionic es té tendència a utilitzar les etiquetes &lt;ion-item&gt; per fer que un element es situa a 
+                        sota d’un altre element.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 if="formularis">Formularis</h2>
+
+                    <p>
+                        Els formularis permeten la introducció de dades mitjançant el teclat del dispositiu i al seu interior pot contenir multitud d’etiquetes depenent de la 
+                        informació que es vulgui recollir.
+                    </p>
+
+                    <p>
+                        Per a crear un formulari utilitzarem l’etiqueta &lt;form&gr;.
+                    </p>
+
+                    <div>
+                        <h3 id="entrada-txt">Entrada de text</h3>
+
+                        <p>
+                            Per a introduir un text mitjançant el teclat podem utilitzar l’etiqueta <b>&lt;input&gt;</b> o <b>&lt;ion-input&gt;</b>. Aquestes etiquetes tindran sempre 
+                            associada una etiqueta <b>&lt;label&gt;</b> o <b>&lt;ion-label&gt;</b> on es dirà la informació que es demana.
+                        </p>
+                        <p>
+                            A continuació es pot veure un exemple de formulari qmb etiquetes d'HTML:
+                        </p>
+                        <ul style="list-style: none">
+                            <li>&lt;form&gt;</li>
+                            <li style="margin-left: 2vw;">&lt;label for="name"&gt;Nom:&lt;/label&gt;</li>
+                            <li style="margin-left: 2vw;">&lt;input name="name" id="name"&gt;</li>
+                            <li>&lt;/form&gt;</li>
+                        </ul>
+                        <p>
+                            A continuació es pot veure un exemple de formulari qmb etiquetes d'Ionic:
+                        </p>
+                        <ul style="list-style: none">
+                            <li>&lt;form&gt;</li>
+                            <li style="margin-left: 2vw;">&lt;ion-label&gt;Nom:&lt;/ion-label&gt;</li>
+                            <li style="margin-left: 2vw;">&lt;ion-input&gt;&lt;ion-input&gt;</li>
+                            <li>&lt;/form&gt;</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div>
+                    <h2>Botons</h2>
+                    <p>
+                        Els botons s’utilitzaran per enviar la informació recollida a un formulari o per obrir una nova vista de l’aplicació. Per aquest elements tenim una 
+                        etiqueta d’HTML: <b>&lt;button&gt;</b> i una d’Ionic <b>&lt;ion-button&gy:</b>.
+                    </p>
+                    <p>
+                        A continuació es pot veure un exemple de botons qmb etiquetes d'HTML:
+                    </p>
+                    <p>
+                        &lt;button&gt;Click&lt;/button&gt;
+                    </p>
+                    <p>
+                        A continuació es pot veure un exemple de botons qmb etiquetes d'Ionic:
+                    </p>
+                    <p>
+                        &lt;ion-button&gt;Click&lt;/ion-button&gt;
+                    </p>
+                </div>
+
+                <div>
+                    <h2>Imatges</h2>
+                    <p>
+                        Per inserir imatges en una vista podem utilitzar una etiqueta HTML &lt;img&gt; o  la d’Ionic &lt;ion-img&gt;. La diferència que hi ha entre una i altre 
+                        és bàsicament que la primera carrega les imatges al carregar la vista i la segona només carrega les imatges quan aquestes son visibles a la vista.
+                    </p>
+                    <p>
+                        Un exemple d’ús d’aquesta etiqueta seria;
+                    </p>
+                    <p>
+                        &lt;img src=”adreça de la imatge” alt=”descripció de la imatge”&gt;
+                    </p>
+                    <p>
+                        L’etiqueta en pel cas d’Ionic s’utilitzarà de la següent manera:
+                    </p>
+                    <p>
+                        &lt;ion-img src=”adreça de la imatge” alt=”descripció de la imatge”&gt;&lt;/ion-img&gt;
+                    </p>
+                </div>
+
+
+                <div style="margin-top: 5vh;">
+                    <a class="btn" id="left" href="../index.html" title="Tornar a l'índex" role="button">Anar a l'Índex</a>
+                    <a class="btn" id="right" href="02.html" title="Bloc I: Fulla d'estils" role="button">Bloc II; Fulla d'estils</a>
+                </div>
+            </article>
+
+            
+            <aside>
+
+            </aside>
+        </main>
+    </body>
+
+    <footer>
+        
+    </footer>
+</html>
