@@ -1,0 +1,215 @@
+<!DOCTYPE html lang="ca">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Conceptes d'Ionic</title>
+
+        <style>
+            main{
+                display: flex;
+                flex-direction: row-reverse;
+
+                margin: 1vh 15vw;
+            }
+
+            aside{
+                width: 55vw;
+                height: 30vh;
+                background-color: white;
+                padding-top: 0.5vh;
+                padding-bottom: 5vh;
+            }
+
+            article p{
+                margin-left: 2w;
+            }
+
+            nav{
+                text-align: center;
+            }
+
+            nav ul li a{
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 1.2em;
+            }
+
+            body{
+                font-size: 1.2em;
+            }
+
+            a{
+                text-decoration: none;
+                color: black;
+            }
+
+            .btn{
+                color: white;
+                background-color: blue;
+                padding: 2vh 2vw;
+
+                border: 0.25em solid navy;
+                border-radius: 1em;
+            }
+
+            #left{
+                float: left;
+                margin-left: 5vw;
+            }
+
+            #right{
+                float: right;
+                margin-right: 5vw;
+            }
+
+            p code{
+                font-weight: 800;
+                font-size: 1.25em;
+            }
+
+            img{
+                display: block;
+                margin: 0 auto;
+            }
+
+            figcaption {
+                margin-top: 1vh;
+                text-align: center;
+                font-size: 0.8em;
+            }
+
+            .type{
+                background-color: black;
+                color: white;
+
+                width: 63.5vw;
+                margin: 0;
+
+                line-height: 1.2em;
+
+                font-family: 'Inconsolata', monospace;
+                font-family: 'Prompt', sans-serif;
+            }
+
+            aside h2{
+                text-align: center;
+                border-bottom: solid 0.025em;
+            }
+
+            .but{
+                padding: 1vh 1vw;
+                color: #FFF;
+                background-color: blue;
+                font-size: 0.75em;
+                margin-left: 0.5vw;
+            }
+
+            header{
+                margin-top: 1vh; 
+                text-align: center;
+            }
+
+            body{
+                background-color: #E3DAC9;
+            }
+
+            article div{
+                margin-left: 2vw;
+            }
+        </style>
+    </head>
+
+    <body style="background-color: ;">
+        <nav style="text-align: center; ">
+            <ul style="list-style: none;">
+                <li style="display: inline; padding: 2vh 1vw; background-color: yellow; color: red; font-weight: 900;">Català</li>
+                <li style="display: inline; padding: 2vh 1vw;"><a href="es/index.html" title="Ver la versión en castellano" style="text-decoration: none;">Castellano</a></li>
+                <li style="display: inline; padding: 2vh 1vw;"><a href="en/index.html" title="Go to English version" style="text-decoration: none;">English</a></li>
+            </ul>
+        </nav>
+
+        <header style="margin: 1vh 15vw;">
+            <h1>Apèndix II: Lector de pantalla</h1>
+        </header>
+
+        <main style="margin: 1vh 15vw;">
+            <article>
+                <div>
+                    <h2>Introducció</h2>
+                    <p>
+                        En aquest apèndix anem a veure les diferències de comportament, si les hi ha entre les etiquetes pures d’HTML i les etiquetes d’Ionic (<b>ion-</b>).
+                    </p>
+                    <ul>
+                        <li><a href="#first-screen" title="Avançar a Primera pantalla">Primera pantalla</a>.</li>
+                        <li><a href="#other-screens" title="Avançar a Segona i Tercera pantalla">Segona i Tercera pantalla</a>.</li>
+                    </ul>
+                    <p>
+                        Per evitar que el lector de pantalles modifiqui l’idioma de la veu, en cas de que tinguem configurat que ho faci, hem de fer la següent modificació al fitxer 
+                        <b>src/app/index.html</b>.
+                    </p>
+                    <p>
+                        A la segona línia, on diu
+                    </p>
+                    <p style="margin-left: 2vw;">
+                    <code>
+                        &lt;html lang="en"&gt;
+                    </code></p>
+                    <p>
+                        Hem de modificar el contingut de la propietat <b>lang</b> per <b>ca</b>, si tenim una veu en català i la volem utilitzar, o <b>es</b>, si volem fer la 
+                        revisió en castellà.
+                    </p>
+                </div>
+
+                <div><a name="first-screen"></a>
+                    <h2>Primera pantalla</h2>
+                    <p>
+                        Quan utilitzem el lector de pantalla entre els elements de la primera pantalla observem que el comportament dels diferents elements és similar i podem 
+                        accedir a tots els elements de la pantalla utilitzant el tabulador.
+                    </p>
+                    <p>
+                        La única diferència destacable de comportament és que pel cas on utilitzem l’etiqueta <b>&lt;ion-item&gt;</b> el lector de pantalla ens llegeix sempre 
+                        l’etiqueta <b>&lt;label&gt;</b>/<b>&lt;ion-label&gt;</b> associada però en els altres dos casos ens llegeix el text introduït en placeholder.
+                    </p>
+                </div>
+
+                <div><a name="other-screens"></a>
+                    <h2>Segona i Tercera pantalla</h2>
+                    <p>
+                        En aquestes pantalles si que hi ha diferència entre el comportament d’un element: la imatge. Quan utilitzem l’etiqueta d’HTML <b>&lt;img&gt;</b> el 
+                        lector de pantalla ens enuncia el text introduït a l’atribut <b>alt</b>; per contra, quan utilitzem l’etiqueta <b>&lt;ion-img&gt;</b> això no succeeix, 
+                        el lector de pantalla no ens avisa que hi ha una imatge. Si la imatge que volem utilitzar és una imatge decorativa que no aporti informació a la pantalla, 
+                        llavor no tindrem cap problema en utilitzar una etiqueta o una altre.
+                    </p>
+                    <p>
+                        Si volem utilitzar una imatge que aporti informació a la pantalla llavors s’ha d’utilitzar l’etiqueta ‘HTML <b>&lt;img&gt;</b> amb el seu atribut <b>alt</b> 
+                        o inserir una etiqueta <b>&lt;span&gt;</b> oculta visualment, però accessible pels lectors de pantalla, que contingui un text describint la imatge.
+                    </p>
+                </div>
+            </div>
+            <div style="margin-top: 5vh;">
+                <a class="btn" id="left" href="a1.html" title="Tornar a Apèndix I: Crear una aplicació" role="button">Apèndix I: Crear una aplicació</a>
+                <a class="btn" id="right" href="../index.html" title="Tornar a la pàgina d'inici" role="button">Pàgina d'inici</a>
+            </div>
+            </article>
+
+            <aside>
+                <h2>Índex</h2>
+                <ol>
+                    <li><a hreg="../index.html" title="Anar a l'Inice">Anar a l'Inici</a>.</li>
+                    <li><a href="01.html" title="Anar al Bloc I: Etiquetes HTML">Etiquetes <abbr title="">HTML</abbr>.</a></li>
+                    <li><a href="02.html" title="Anar al Bloc II: Fulla d'estils">Estils de <abbr title="">CSS</abbr>.</a></li>
+                    <li><a href="03.html" title="Anar al Bloc III: TypeScript">Programació amb <span lang="en">TypeScript</span>.</a></li>
+                    <li><a href="04.html" title="Anar al Bloc IV: Ionic/CLI i el seu entorn"><abbr lang="en">Ionic/CLI</abbr> i el seu entorn.</a></li>
+                    <li><a href="a1.html" title="Anar a l'apèndix I: Crear una aplicació">Apèndix I: Crear una aplicació</a></li>
+                    <li><a href="a2.html" title="Anar a l'apèndix II: Lector de pantalla">Apèndix II: Lector de pantalla</a></li>
+                </ol>
+
+                <a class="but" href="" title="Descarregar PDF" target="_blank" role="button">Descarregar <abbr title="Portable Document Format">PDF</abbr></a>
+                <a class="but" href="../index.html" title="Anar a la àpigan d'inici" role="button">Pàgina d'inici</a>
+            </aside>
+        </main>
+    </body>
+
+    <footer>
+        
+    </footer>
+</html>

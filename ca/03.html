@@ -1,0 +1,476 @@
+<!DOCTYPE html lang="ca">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Conceptes d'Ionic</title>
+
+        <style>
+            main{
+                display: flex;
+                flex-direction: row-reverse;
+
+                margin: 1vh 15vw;
+            }
+
+            aside{
+                width: 42vw;
+                height: 30vh;
+                background-color: white;
+                padding-top: 0.5vh;
+                padding-bottom: 5vh;
+            }
+
+            article p{
+                margin-left: 2w;
+            }
+
+            nav{
+                text-align: center;
+            }
+
+            nav ul li a{
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 1.2em;
+            }
+
+            body{
+                font-size: 1.2em;
+            }
+
+            a{
+                text-decoration: none;
+                color: black;
+            }
+
+            .btn{
+                color: white;
+                background-color: blue;
+                padding: 2vh 2vw;
+
+                border: 0.25em solid navy;
+                border-radius: 1em;
+            }
+
+            #left{
+                float: left;
+                margin-left: 5vw;
+            }
+
+            #right{
+                float: right;
+                margin-right: 5vw;
+            }
+
+            p code{
+                font-weight: 800;
+                font-size: 1.25em;
+            }
+
+            img{
+                display: block;
+                margin: 0 auto;
+            }
+
+            figcaption {
+                margin-top: 1vh;
+                text-align: center;
+                font-size: 0.8em;
+            }
+
+            .type{
+                background-color: black;
+                color: white;
+
+                width: 63.5vw;
+                margin: 0;
+
+                line-height: 1.2em;
+
+                font-family: 'Inconsolata', monospace;
+                font-family: 'Prompt', sans-serif;
+            }
+
+            aside h2{
+                text-align: center;
+                border-bottom: solid 0.025em;
+            }
+
+            .but{
+                padding: 1vh 1vw;
+                color: #FFF;
+                background-color: blue;
+                font-size: 0.75em;
+                margin-left: 0.5vw;
+            }
+
+            header{
+                margin-top: 1vh; 
+                text-align: center;
+            }
+
+            body{
+                background-color: #E3DAC9;
+            }
+
+            article div{
+                margin-left: 2vw;
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav>
+            <ul style="list-style: none;">
+                <li style="display: inline; padding: 2vh 1vw; background-color: yellow; color: red; font-weight: 900;">Català</li>
+                <li style="display: inline; padding: 2vh 1vw;"><a href="../es/03.html" title="Ver la versión en castellano" style="text-decoration: none;">Castellano</a></li>
+                <li style="display: inline; padding: 2vh 1vw;"><a href="../en/03.html" title="Go to English version" style="text-decoration: none;">English</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <article>
+                <header>
+                    <h1>Bloc III: TypeScript</h1>
+                </header>
+                <div>
+                    <h2>Introducció</h2>
+                    <p>
+                        Es podria dir que TypeScript es una evolució de JavaScript i és el llenguatge que utilitza Ionic per a la lògica de les aplicacions. En aquest bloc es 
+                        veuran les característiques més bàsiques d’aquest llenguatge com és:
+                    </p>
+                    <ul>
+                        <li><a href="#importacio-moduls" title="Moure's a Importació de Mòduls">Importació de Mòduls</a>.</li>
+                        <li><a href="#declaracio-variable" title="Moure's a Declaració de variables">Declaració de variables</a>.</li>
+                        <li><a href="#bucles" title="Moure's a Bucles">Bucles</a>.</li>
+                        <li><a href="#metodes" title="Moure's a Mètodes">Mètodes</a>.</li>
+                    </ul>
+                    <p>
+                        Els arxius de TypeScript també estan inclosos dins la carpeta de la vista i reben el nom de XX.page.ts.
+                    </p>
+                </div>
+                
+                <div><a name="importacio-moduls"></a>
+                    <h2>Importació de Mòduls</h2>
+                    <p>
+                        Quan volem importar un mòdul a TypeScript, el que seria una llibreria en altre llenguatges com JavaScript, primer s’ha gairebé sempre es importar el 
+                        mòdul al fitxer src/app/app.module.ts. Per importar ho farem de la següent manera:
+                    </p>
+                    <p style="text-align: center;"><code>
+                        import { nomDelModul } from ‘ubicació del mòdul’;
+                    </code></p>
+                    <p>
+                        Un cop importat el mòdul l’inclourem a l’array d’imports o de providers. Un cop fet això ja podrem utilitzar el mòdul a la nostre aplicació.
+                    </p>
+                    <p>
+                        Ara, si volem utilitzar el mòdul simplement l’haurem d’importar a la vista on vol utilitzar-ho escrivint a la zona d’imports el següent.
+                    </p>
+                    <p style="text-align: center;"><code>
+                        import { nomDelModul } from ‘ubicació del mòdul’;
+                    </code></p>
+                </div>
+
+                <div><a name="declaracio-variables"></a>
+                    <h2>Declaració de variables</h2>
+                    <p>
+                        Hi ha dos tipus de variables: les globals i les locals. La diferència entre ambdues és que les primeres afecten a tot el fitxer i les segones només a 
+                        una part del fitxer, normalment un mètode.
+                    </p>
+                    
+                    <div>
+                        <h3>Variables globals</h3>
+                        <p>
+                            Les variables globals es declararan abans del constructor() i es farà de la següent manera:
+                        </p>
+                        <p style="text-align: center;"><code>
+                            nomDeLaVariable: tipusDeVariable;
+                        </code></p>
+                        <p>
+                            Si es vol, es pot inicialitzar una variable just en el moment de la seva declaració. Al inicialitzar la variable li estem donant un valor inicial i 
+                            no ens cal indicar el tipus de variable ja que TypeScript li assignarà un segons el seu valor. Encara que no calgui indicar el tipus s’aconsella 
+                            fer-ho per deixar ben clar quin tipus de variables hem declarat.
+                        </p>
+                        <p>
+                            La declaració i inicialització d’una variable global es fa de la següent manera:
+                        </p>
+                        <p style="text-align: center;"><code>
+		                    nomDeLaVariable: tipusDeVariable = valorDeLaVariable;
+                        </code></p>
+                        <p>
+                            Els tipus de variables de TypeScript son:
+                        </p>
+                        <ul>
+                            <li>Number.</li>
+                            <li>String.</li>
+                            <li>Boolean.</li>
+                            <li>Any.</li>
+                        </ul>
+                        <p>
+                            Per utilitzar una variable global haurem d’utilitzar la paraula reservada this abans del nom de la variable de la següent manera:
+                        </p>
+                        <p style="text-align: center;"><code>
+			                this.nomDeLaVaraiable;
+                        </code></p>
+                    </div>
+
+                    <div>
+                        <h4>Variables number</h4>
+                        <p>
+                            Les variables <b>number</b> s’utilitzen amb nombre ja siguin sencer o decimals.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4>Variables string</h4>
+                        <p>
+                            Les variable <b>string</b> s’utilitzen per declarar cadenes de caràcters o nombres. En cas de declarar un nombre com a <b>string</b> no podrem 
+                            utilitzar la variable per a realitzar operacions matemàtiques.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h4>Variables boolean</h4>
+                        <p>
+                            Les variables <b>boolean</b> s’utilitzen per a declara una variable que només pot tenir com a valors false o true i s’utilitzen, generalment, per a 
+                            la presa de decisions en un bucle.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4>Variables any</h4>
+                        <p>
+                            Les variables any permeten fer que una variable agafi qualsevol tipus de variable i és el que utilitzarem per a declara una variable que sigui un 
+                            objecte o que no tinguem clar de quin tipus ha de ser.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h3>Variables Locals</h3>
+                        <p>
+                            Les variables locals es declaren dins de mètodes i només afecta al mètode on es declara. La forma de declarar una variable local pot ser la mateixa 
+                            que l’emprada per a declara una global afegint la paraula reservada let abans del nom de la variable, o inicialitzant-la al declarar-la de la 
+                            següent manera:
+                        </p>
+                        <p style="text-align: center;"><code>
+                            let nomDeLaVariable = valorDeLaVariable;
+                        </code></p>
+                        <p>
+                            Per utilitzar una variable local no hem d’afegir la paraula reservada <b>this</b> abans del nom de la variable.
+                        </p>
+                    </div>
+                </div>
+
+                <div><a name="bucles"></a>
+                    <h2>Bucles</h2>
+                    <p>
+                        Els bucles permeten la presa de decisions segons els valors de les diferents variables. A TypeScript s’utilitzen els següents bucles:
+                    </p>
+                    <ul>
+                        <li>for.</li>
+                        <li>for – each.</li>
+                        <li>if – else if.</li>
+                        <li>switch.</li>
+                        <li>while.</li>
+                        <li>do – while.</li>
+                    </ul>
+
+                    <div>
+                        <h3>Bucle for</h3>
+                        <p>
+                            El bucle <b>for</b> s’utilitza, generalment, per a recorre elements com els array de forma seqüencial i element a element i la seva declaració i ús 
+                            és molt similar a la resta de llenguatges.
+                        </p>
+                        <p>
+                            Un bucle for té el següent aspecte:
+                        </p>
+                        <p style="margin-left: 2vw;"><code>
+                            for(let i = 0; i < 10; i+1) {</br>
+                                <span style="margin-left: 2vw;">variable[i] = 2*i+10;</span></br>
+                            }
+                        </code></p>
+                        <p>
+                            La descripció d’aquest bucle seria la següent:
+                        </p>
+                        <p style="margin-left: 2vw;"><code>
+                            for( definició; condició; actualització){</br>
+                                <span style="margin-left: 2vw;">execució</span></br>
+                            }
+                        </code></p>
+                    </div>
+
+                    <div>
+                        <h3>Bucle for – each</h3>
+                        <p>
+                            És un cas especial del bucle for vist al punt anterior que es diferencia bàsicament en la seva declaració al no utilitzar-se l’actualització de la 
+                            variable, ni caldre una definir una variable local.
+                        </p>
+                        <p>
+                            Aquest tipus de bucle només poden recórrer els array element a element i es declara de la següent manera:
+                        </p>
+                        <p style="margin-left: 2vw;"><code>
+                            for (let element of this.elements) {</br>
+                                <span style="margin-left: 2vw;">Element = 0:</span></br>
+                            }</code>
+                        </p>
+
+                        <p>
+                            En aquest cas hem fet un bucle que recorre tots els elements (element) de l’array elements i els igual a 0.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Bucle if – else if</h3>
+                        <p>
+                            A diferència dels bucles anteriors, aquest bucle ens permet la presa de decisions dins de l’aplicació. A aquest bucle se l’imposa una condició que 
+                            en cas de ser certa (<b>true</b>) realitzarà una o varies accions i en cas de ser falsa (<b>false</b>) realitzarà altres accions.
+                        </p>
+                        <p>
+                            La seva declaració és de la forma:
+                        </p>
+                        <p style="margin-left: 2vw;"><code>
+                            if(condicio1){</br>
+                                <span style="margin-left: 2vw;">accions si condició 1 és certa</span></br>
+                            <span style="margin-left: 2vw;">} else if (condicio2){</span></br>
+                                <span styles="margin-left:2vw;">accions si condició 2 és certa</span></br>
+                                <span style="margin-left: 2vw;">}</span></br>
+                                <span style="margin-left: 2vw;">else {</span></br>
+                                    <span style="margin-left: 2vw;">accions si condició 1 i 2 son falses</span></br>
+                            }</code>
+                        </p>
+                        <p>
+                            <b>else if</b> i <b>else</b> poden o no ser necessàries per al bucle. És a dir, si volen que una acció es realitzi només quan una condició sigui 
+                            certa podem utilitzar només <b>if</b> sense tenir que emprar ni <b>else if</b> ni <b>else</b>.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Bucle switch</h3>
+                        <p>
+                            Aquest bucle és molt similar al bucle anterior i també permet la presa de decisions però la seva declaració és força diferent a la del bucle anterior, 
+                            encara que també avalua quan una condició és certa.
+                        </p>
+                        <p>
+                            La forma de declara aquest bucle és la següent:
+                        </p>
+                        <p style="margin-left: 2vw;"><code>
+                            switch (expressió){</br>
+                                <span style="margin-left: 2vw;">case valor1:</span></br>
+                                <span style="margin-left: 4vw;">accions si expressió = valor1;</span></br>
+                                <span style="margin-left: 4vw;">break;</span></br>
+                                <span style="margin-left: 2vw;">case valor2:</span></br>
+                                <span style="margin-left: 4vw;">accions si expressió = valor2;</span></br>
+                                <span style="margin-left: 4vw;">break;</span></br>
+                                <span style="margin-left: 2vw;">default:</span></br>
+                                <span style="margin-left: 4vw;">accions per defecte;</span></br>
+                                <span style="margin-left: 4vw;">break;</span></br>
+                        }</code>
+                        </p>
+                        <p>
+                            En aquest bucle s’avalua si la expressió és igual a un del casos (<b>case</b>) i quan ho és es realitzen les accions que indica el cas. Un cop 
+                            realitzades aquestes accions, si volem que no s’avaluïn més opcions hem d’escriure la paraula reservada <b>break</b> per sortir del bucle. En cas de 
+                            que no s’escrigui a <b>break</b> es passarà a comprovar si l’expressió és igual al següent valor.
+                        </p>
+                        <p>
+                            Pel que fa a <b>default</b>, és l’acció que es realitzarà al finalitzar el bucle si no em sortir del mateix. De la mateixa forma que else a un bucle 
+                            <b>if -else</b>, no tenim obligació d’utilitzar una secció <b>default</b> a un bucle <b>switch</b>.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Bucle while</h3>
+                        <p>
+                            Un bucle <b>while</b> fa que una acció o accions es realitzin de forma continuada fins que la condició es deixa de complir S’ha de tenir molt de 
+                            compte en la utilització d’aquest bucle ja que podem imposar una condició que sigui certa sempre i per tant que entrem en un bucle infinit del que no puguem 
+                            sortir.
+                        </p>
+                        <p>
+                            Un exemple de declaració d’aquest bucle és el següent:
+                        </p>
+                        <p style="margin-left: 2vw;"><code>
+		                    while(index < 5){</br>
+			                <span style="margin-left: 2vw;">accions;</span></br>
+			                <span style="margin-left: 2vw;">index++;</span></br>
+		                }</code>
+                        </p>
+                        <p>
+                            El bucle de l’exemple realitzarà la mateixa acció fins que la variable index agafi el valor 5.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3>Bucle do-while</h3>
+                        <p>
+                            El bucle <b>do – while</b> és molt semblant al bucle anterior amb la diferència que les accions dins del bloc do es realitzen al menys un cop.
+                        </p>
+                        <p>
+                            La declaració d’aquest bucle es realitza de la següent manera:
+                        </p>
+                        <p style="margin-left: 5vw;"><code>
+                            do {
+                                <span style="margin-left: 2vw;">accions;</span></br>
+                                <span style="margin-left: 2vw;">index++;</span></br>
+                            }</br>
+                            while(index < 5)</br></code>
+                        </p>
+                        <p>
+                            Aquest bucle realitzaria les mateixes accions que l’anterior però amb la diferència, com ja s’ha dit, que tenim la certesa que l’acció es realitzarà al 
+                            menys un cop.
+                        </p>
+                    </div>
+                </div>
+                
+                <div><a name="metodes"></a>
+                    <h2>Mètodes</h2>
+                    <p>
+                        El mètodes o funcions son blocs de codi que s’executen al ser cridats ja sigui per un altre mètode o per un element de la part visual de l’aplicació com 
+                        podria ser un botó.
+                    </p>
+                    <p>
+                        Al declarar un mètode podem fer que aquest agafi una variable que se li transfereix al ser cridat. En cas de que el mètode retorni una variable 
+                        (<b>return</b>), no hem d’especificar quin tipus de variable retorna, tal i com es fa en C/C++.
+                    </p>
+                    <p>
+                        La declaració d’un mètode es fa de la següent manera:
+                    </p>
+                    <p style="margin-left: 2vw;"><code>
+		                nomDelMetodo(variable){ </br>
+			            <span style="margin-left: 4vw;">accions;</span></br>
+                        <span style="margin-left: 4vw;">return valorVariable;</span></br>
+		                }</code>
+                    </p>
+                    <p>
+                        En aquest cas al mètode <b>nomDelMetodo</b> se li ha passat la variable variable i ens retorna la variable valorVariable.
+                    </p>
+                    <p>
+                        Com veurem més endavant, els mètodes son la part més important de la programació de l’aplicació al poder-se utilitzar com a peces d’un puzle per a crear 
+                        una aplicació.
+                    </p>
+                </div>
+
+                <div style="margin-top: 5vh;">
+                    <a class="btn" id="left" href="01.html" title="Tornar al Bloc II: Fulla d’estils" role="button">Bloc II: Fulla d’estils</a>
+                    <a class="btn" id="right" href="04.html" title="Anar al Bloc IV: Ionic/CLI i el seu entorn" role="button">Bloc IV: Ionic/CLI i el seu entorn</a>
+                </div>
+            </article>
+
+            <aside>
+                <h2>Índex</h2>
+                <ol>
+                    <li><a href="../index.html" title="Anar a l'Inici">Anar a l'Inici</a>.</li>
+                    <li><a href="01.html" title="Anar al Bloc I: Etiquetes HTML">Etiquetes <abbr title="">HTML</abbr>.</a></li>
+                    <li><a href="02.html" title="Anar al Bloc II: Fulla d'estils">Estils de <abbr title="">CSS</abbr>.</a></li>
+                    <li><a href="03.html" title="Anar al Bloc III: TypeScript">Programació amb <span lang="en">TypeScript</span>.</a></li>
+                    <li><a href="04.html" title="Anar al Bloc IV: Ionic/CLI i el seu entorn"><abbr lang="en">Ionic/CLI</abbr> i el seu entorn.</a></li>
+                    <li><a href="a1.html" title="Anar a l'apèndix I: Crear una aplicació">Apèndix I: Crear una aplicació</a></li>
+                    <li><a href="a2.html" title="Anar a l'apèndix II: Lector de pantalla">Apèndix II: Lector de pantalla</a></li>
+                </ol>
+
+                <a class="but" href="" title="Descarregar PDF" target="_blank" role="button">Descarregar <abbr title="Portable Document Format">PDF</abbr></a>
+                <a class="but" href="../index.html" title="Anar a la àpigan d'inici" role="button">Pàgina d'inici</a>
+            </aside>
+        </main>
+    </body>
+
+    <footer>
+        
+    </footer>
+</html>
