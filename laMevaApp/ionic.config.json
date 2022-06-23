@@ -1,0 +1,7 @@
+{
+  "name": "laMevaApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
