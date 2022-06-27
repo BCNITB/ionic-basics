@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "laMevaApp",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
